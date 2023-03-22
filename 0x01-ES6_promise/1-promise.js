@@ -1,4 +1,4 @@
-const getFullResponseFromAPI = (success) => {
+function getFullResponseFromAPI(success) {
   return new Promise((resolve, reject) => {
     if (success) {
       resolve({
@@ -9,6 +9,5 @@ const getFullResponseFromAPI = (success) => {
       reject(new Error('The fake API is not working currently'));
     }
   });
-};
-
+}
 export default getFullResponseFromAPI;
