@@ -10,5 +10,5 @@ export default function handleResponseFromAPI(promise) {
     }
   });
 
-  return mypromise.catch(() => console.log('Got a response from the API'));
+  return mypromise.then(() => console.log('Got a response from the API'));
 }
