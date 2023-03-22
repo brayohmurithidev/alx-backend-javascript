@@ -3,19 +3,19 @@ import uploadPhoto from './5-photo-reject';
 
 async function handleProfileSignup(firstName, lastName, fileName) {
   const promise1 = {
-    status: 'pending',
+    status: 'pending ',
   };
   const promise2 = {
-    status: 'pending',
+    status: 'pending ',
   };
 
   try {
-    const signup = signUpUser(firstName, lastName);
+    const signup = await signUpUser(firstName, lastName);
     promise1.status = 'fulfilled';
     promise1.value = signup;
-  } catch (error) {
+  } catch (err) {
     promise1.status = 'rejected';
-    promise1.value = error.toString();
+    promise1.value = err.toString();
   }
 
   try {
