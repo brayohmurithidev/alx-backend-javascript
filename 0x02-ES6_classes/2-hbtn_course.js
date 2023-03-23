@@ -1,31 +1,51 @@
-export default class HolbertonCourse {
+class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = typeof name === 'string' ? name : (() => { throw new TypeError('Name must be a string'); })();
-    this._length = typeof length === 'number' ? length : (() => { throw new TypeError('Length must be a number'); })();
-    this._students = Array.isArray(students) ? students : [];
+    this.name = name;
+    this.length = length;
+    this.students = students;
   }
 
+  // name
   get name() {
     return this._name;
   }
 
-  set name(value) {
-    this._name = typeof value === 'string' ? value : (() => { throw new TypeError('Name must be a string'); })();
+  set name(name) {
+    if (typeof name === 'string') {
+      this._name = name;
+    } else {
+      throw new TypeError('Name must be a string');
+    }
   }
 
+  // length
   get length() {
     return this._length;
   }
 
-  set length(value) {
-    this._length = typeof value === 'number' ? value : (() => { throw new TypeError('Length must be a number'); })();
+  set length(length) {
+    if (typeof length === 'number') {
+      this._length = length;
+    } else {
+      throw new TypeError('Length must be a number');
+    }
   }
 
+  // students
   get students() {
     return this._students;
   }
 
-  set students(value) {
-    this._students = Array.isArray(value) ? value : [];
+  set students(students) {
+    if (
+      Array.isArray(students)
+        && students.every((s) => typeof s === 'string')
+    ) {
+      this._students = students;
+    } else {
+      throw new TypeError('Students must be an array of strings');
+    }
   }
 }
+
+export default HolbertonCourse;
